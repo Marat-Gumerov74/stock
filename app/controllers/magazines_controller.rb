@@ -14,5 +14,6 @@ class MagazinesController < ApplicationController
     @item = [
       Item.new(name: 'bita', created_at: Date.parse('12.08.2022'))
     ]
+    @new_item = Item.new
   end
 end
