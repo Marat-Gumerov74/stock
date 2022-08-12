@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :magazines
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get 'show' => 'magazines#show'
   # Defines the root path route ("/")
   # root "articles#index"
 end
