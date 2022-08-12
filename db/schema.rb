@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_091534) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_092625) do
   create_table "items", force: :cascade do |t|
     t.integer "code"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "magazine_id", null: false
+    t.index ["magazine_id"], name: "index_items_on_magazine_id"
   end
 
   create_table "magazines", force: :cascade do |t|
@@ -27,4 +29,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_091534) do
     t.string "password_salt"
   end
 
+  add_foreign_key "items", "magazines"
 end
