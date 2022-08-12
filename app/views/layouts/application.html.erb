@@ -2,15 +2,22 @@
 <html>
   <head>
     <title>Stock</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_importmap_tags 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="header-logo">
+        <h1 class="header-title"><%= link_to "Magazine", root_path %></h1>
+      </div>
+    </div>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>

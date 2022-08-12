@@ -1,2 +1,7 @@
 <h1><%= @magazine.name %></h1>
 
+<a href="#" class="button-green">Add item</a>
+<% @item.each do |item| %>
+  <%= render partial: "items/item", object: item %>
+<% end %>
+
