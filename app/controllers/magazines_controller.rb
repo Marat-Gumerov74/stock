@@ -1,5 +1,15 @@
 class MagazinesController < ApplicationController
   def index
+    @magazines = [
+      Magazine.new(
+        id: 3,
+        name: '55'
+      ),
+      Magazine.new(
+        id: 4,
+        name: '56'
+      )
+    ]
   end
 
   def new

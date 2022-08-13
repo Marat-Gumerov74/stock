@@ -1,7 +1,35 @@
 <h1><%= @magazine.name %></h1>
 
 <a href="#" class="button-green">Add item</a>
+
+
+<%# Блок с формой для задавания пользователю вопроса %>
+<div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
+  <div class="user-question-form buffer-both">
+    <div class="form">
+      <%# Мы используем хелпер form_for, принимающий на вход блок erb-кода, %>
+      <%# в котором доступна переменная f, содержащая так называемый form %>
+      <%# builder, с помощью которого можно делать поля формы для нового %>
+      <%# вопроса. %>
+      <%= form_for @new_item do |f| %>
+        <%# С помощью объекта для создания полей формы, связанной с моделью %>
+        <%# @new_question Мы создаем инпуты с нужными полями для формы, %>
+        <%# значения будут подставлены rails автоматически. %>
+        <%= f.hidden_field :name %>
+
+        <div class="form-field">
+          <%= f.label "add item to stock #{@magazine.name}", class: 'form-label' %>
+          <%= f.text_area :name, class: 'form-textarea' %>
+        </div>
+
+        <div class="form-action">
+          <%= submit_tag 'go', class: 'button button-small button-dark' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <% @item.each do |item| %>
   <%= render partial: "items/item", object: item %>
 <% end %>
-
